@@ -6,15 +6,16 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"message": "hello world"}
+    return {"Messeage": "Hello world"}
 
 @app.get("/greet")
 def greet():
-    return{"message": "namaste world"}
+    return {"Messeage": "Hello Sam"}
 
-@app.get("/greets")
-def greets_name(name: str, age: Optional[int] = None):
-    return {"message": f"hello {name} ur age is {age}"}
+@app.get("/greet/")
+def greet_name(name: str, age: Optional[int] = None):
+    return {"Messeage": f"Hello {name} and you are {age} years old"}
+
 
 class Student(BaseModel):
     name: str
@@ -28,4 +29,3 @@ def create_student(student: Student):
         "age": student.age,
         "roll": student.roll
     }
-
